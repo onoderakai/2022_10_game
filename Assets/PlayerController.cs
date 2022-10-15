@@ -4,33 +4,45 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Rigidbody rigidbody;
+    float walkForce = 30.0f;
+    float maxWalkForce = 5.0f;
+
+    int dir = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.rigidbody=GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float speedX = 0.1f;
-        float speedZ = 0.1f;
-       
-        if (Input.GetKey(KeyCode.W))
+        //プレイヤーの速度
+        float speedX = Mathf.Abs(this.rigidbody.velocity.x);
+        float speedZ = Mathf.Abs(this.rigidbody.velocity.z);
+        
+        if (Input.GetKey(KeyCode.W) && speedZ < maxWalkForce)
         {
-            transform.Translate(0, 0, speedZ);
+            dir = 1;
+            this.rigidbody.AddForce(transform.forward * dir * this.walkForce);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && speedX < maxWalkForce)
         {
-            transform.Translate(-speedX, 0, 0);
+            dir = -1;
+            this.rigidbody.AddForce(transform.right * dir * this.walkForce);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && speedZ < maxWalkForce)
         {
-            transform.Translate(0, 0, -speedZ);
+            dir = -1;
+            this.rigidbody.AddForce(transform.forward * dir * this.walkForce);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && speedX < maxWalkForce)
         {
-            transform.Translate(speedX, 0, 0);
+            dir = 1;
+            this.rigidbody.AddForce(transform.right * dir * this.walkForce);
         }
+        dir = 0;
     }
 }
