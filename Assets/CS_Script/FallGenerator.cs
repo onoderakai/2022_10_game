@@ -25,7 +25,7 @@ public class FallGenerator : MonoBehaviour
             delta = 0.0f;
             GameObject go =Instantiate(fallPrefab) as GameObject;
             Vector3 pos = player.transform.position;
-            go.transform.position = new Vector3(pos.x, 10, pos.z);
+            go.transform.position = new Vector3(pos.x, 5, pos.z);
         }
     }
 }

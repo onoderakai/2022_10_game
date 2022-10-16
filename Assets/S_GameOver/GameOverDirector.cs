@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;//LoadScene‚ðŽg‚¤‚½‚ß‚É•K—v
 
-public class BlockController : MonoBehaviour
+public class GameOverDirector : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,15 +14,9 @@ public class BlockController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    //“–‚½‚è”»’è
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "tumayozi")
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene("GameScene");
         }
-       
     }
 }
