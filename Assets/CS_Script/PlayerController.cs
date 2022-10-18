@@ -29,7 +29,11 @@ public class PlayerController : MonoBehaviour
         {
             if (!Input.anyKey)
             {
-                //this.rigid.velocity = Vector3.zero;
+                Vector3 speed;
+                speed.x = 0.0f;
+                speed.z = 0.0f;
+                speed.y = rigid.velocity.y;
+                this.rigid.velocity = speed;
             }
             if (Input.GetKey(KeyCode.W) && speedZ < maxWalkForce)
             {
