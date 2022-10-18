@@ -5,6 +5,7 @@ using UnityEngine;
 public class tumayoziController : MonoBehaviour
 {
     Rigidbody rb;
+    string objTag = "";
     bool isLift = false;
 
     // Start is called before the first frame update
@@ -26,13 +27,15 @@ public class tumayoziController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    private void OnCollisionStay(Collision collision)
-    {
-        if(collision.collider.tag == "takoyaki" ||
-            collision.collider.tag == "player")
+        //“–‚½‚è”»’è‚ÌğŒ•ªŠò
+        if (objTag == "takoyaki" ||
+            objTag == "player")
         {
             isLift = true;
         }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        objTag = collision.gameObject.tag;
     }
 }

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rigid;
     float walkForce = 30.0f;
     float maxWalkForce = 5.0f;
+    string objTag = "";
 
     int dir = 0;
     bool isLift = false;
@@ -27,9 +28,10 @@ public class PlayerController : MonoBehaviour
 
         if (!isLift)
         {
+            Vector3 speed;
             if (!Input.anyKey)
             {
-                Vector3 speed;
+                
                 speed.x = 0.0f;
                 speed.z = 0.0f;
                 speed.y = rigid.velocity.y;
@@ -38,24 +40,55 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.W) && speedZ < maxWalkForce)
             {
                 dir = 1;
+                if (!Input.GetKey(KeyCode.A) &&
+                    !Input.GetKey(KeyCode.D))
+                {
+                    speed.x = 0.0f;
+                    speed.z = rigid.velocity.z;
+                    speed.y = rigid.velocity.y;
+                    this.rigid.velocity = speed;
+                }
                 this.rigid.AddForce(transform.forward * dir * this.walkForce);
-                //transform.Translate(0, 0, speedZ * dir);
             }
             if (Input.GetKey(KeyCode.A) && speedX < maxWalkForce)
             {
                 dir = -1;
+                if (!Input.GetKey(KeyCode.W) &&
+                    !Input.GetKey(KeyCode.S))
+                {
+                    speed.x = rigid.velocity.x;
+                    speed.z = 0.0f;
+                    speed.y = rigid.velocity.y;
+                    this.rigid.velocity = speed;
+                }
                 this.rigid.AddForce(transform.right * dir * this.walkForce);
                 //transform.Translate(speedX * dir, 0, 0);
             }
             if (Input.GetKey(KeyCode.S) && speedZ < maxWalkForce)
             {
                 dir = -1;
+                if (!Input.GetKey(KeyCode.A) &&
+                    !Input.GetKey(KeyCode.D))
+                {
+                    speed.x = 0.0f;
+                    speed.z = rigid.velocity.z;
+                    speed.y = rigid.velocity.y;
+                    this.rigid.velocity = speed;
+                }
                 this.rigid.AddForce(transform.forward * dir * this.walkForce);
                 //transform.Translate(0, 0, speedZ * dir);
             }
             if (Input.GetKey(KeyCode.D) && speedX < maxWalkForce)
             {
                 dir = 1;
+                if (!Input.GetKey(KeyCode.W) &&
+                    !Input.GetKey(KeyCode.S))
+                {
+                    speed.x = rigid.velocity.x;
+                    speed.z = 0.0f;
+                    speed.y = rigid.velocity.y;
+                    this.rigid.velocity = speed;
+                }
                 this.rigid.AddForce(transform.right * dir * this.walkForce);
                 //transform.Translate(speedX * dir, 0, 0);
             }
@@ -73,16 +106,20 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene("2GameOver");
             }
         }
-       
+        //衝突したオブジェクトの条件分岐
+        if(objTag == "takoyaki")
+        {
+            
+        }
+        else if (objTag == "tumayozi")
+        {
+            isLift = true;
+        }
+
         dir = 0;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "tumayozi")
-        {
-            isLift = true;
-            //Destroy(GetComponent<Rigidbody>());
-            //Destroy(gameObject);
-        }
+        objTag = collision.gameObject.tag;
     }
 }

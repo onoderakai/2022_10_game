@@ -153,7 +153,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &156956945
 MonoBehaviour:
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallPrefab: {fileID: 5206297082551014675, guid: ee43139ef0520e843954e8b55c2ee6d3, type: 3}
+  blockGenerator: {fileID: 900510706}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 3013046079002268577, guid: 67694917103808b4e9f1c806f036401e, type: 3}
+  maxRangeZ: 0
+  maxRangeX: 0
 --- !u!4 &900510707
 Transform:
   m_ObjectHideFlags: 0
@@ -413,7 +416,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8c6e6f70cc36bc345a5d668fa2f0a898, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c6e6f70cc36bc345a5d668fa2f0a898, type: 3}
       propertyPath: m_LocalPosition.x
