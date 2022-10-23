@@ -7,15 +7,10 @@ public class BlockController : MonoBehaviour
     string objTag = "";
     bool isLift=false;
     Rigidbody rigid;
-    //スコアオブジェクトを取得
-    //private GameObject scoreManager;
-    //ScoreManager scoreScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        //this.scoreManager = GameObject.Find("ScoreManager");
-        //this.scoreScript=scoreManager.GetComponent<ScoreManager>();
         this.rigid = GetComponent<Rigidbody>();
         ScoreManager.scoreCount = 0;
     }

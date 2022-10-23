@@ -16,7 +16,7 @@ public class FallGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.player = GameObject.Find("takoyaki");
+        this.player = GameObject.Find("player_takoyaki");
 
     }
 
@@ -30,11 +30,12 @@ public class FallGenerator : MonoBehaviour
             delta = 0.0f;
             GameObject go =Instantiate(fallPrefab) as GameObject;
             pos = player.transform.position;
-            go.transform.position = new Vector3(pos.x, 5, pos.z);
+            go.transform.position = new Vector3(pos.x - 0.4f, 5, pos.z);
         }
         if (count > 1)
         {
-            for(int i = 0; i < 3; i++)
+            int rand = Random.Range(1, 5);
+            for(int i = 0; i < rand; i++)
             {
                 count = 0;
                 GameObject go = Instantiate(fallPrefab) as GameObject;

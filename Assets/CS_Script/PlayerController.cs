@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.W) && speedZ < maxWalkForce)
             {
-                dir = 1;
+                dir = -1;
                 if (!Input.GetKey(KeyCode.A) &&
                     !Input.GetKey(KeyCode.D))
                 {
@@ -52,34 +52,6 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.A) && speedX < maxWalkForce)
             {
-                dir = -1;
-                if (!Input.GetKey(KeyCode.W) &&
-                    !Input.GetKey(KeyCode.S))
-                {
-                    speed.x = rigid.velocity.x;
-                    speed.z = 0.0f;
-                    speed.y = rigid.velocity.y;
-                    this.rigid.velocity = speed;
-                }
-                this.rigid.AddForce(transform.right * dir * this.walkForce);
-                //transform.Translate(speedX * dir, 0, 0);
-            }
-            if (Input.GetKey(KeyCode.S) && speedZ < maxWalkForce)
-            {
-                dir = -1;
-                if (!Input.GetKey(KeyCode.A) &&
-                    !Input.GetKey(KeyCode.D))
-                {
-                    speed.x = 0.0f;
-                    speed.z = rigid.velocity.z;
-                    speed.y = rigid.velocity.y;
-                    this.rigid.velocity = speed;
-                }
-                this.rigid.AddForce(transform.forward * dir * this.walkForce);
-                //transform.Translate(0, 0, speedZ * dir);
-            }
-            if (Input.GetKey(KeyCode.D) && speedX < maxWalkForce)
-            {
                 dir = 1;
                 if (!Input.GetKey(KeyCode.W) &&
                     !Input.GetKey(KeyCode.S))
@@ -90,7 +62,32 @@ public class PlayerController : MonoBehaviour
                     this.rigid.velocity = speed;
                 }
                 this.rigid.AddForce(transform.right * dir * this.walkForce);
-                //transform.Translate(speedX * dir, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.S) && speedZ < maxWalkForce)
+            {
+                dir = 1;
+                if (!Input.GetKey(KeyCode.A) &&
+                    !Input.GetKey(KeyCode.D))
+                {
+                    speed.x = 0.0f;
+                    speed.z = rigid.velocity.z;
+                    speed.y = rigid.velocity.y;
+                    this.rigid.velocity = speed;
+                }
+                this.rigid.AddForce(transform.forward * dir * this.walkForce);
+            }
+            if (Input.GetKey(KeyCode.D) && speedX < maxWalkForce)
+            {
+                dir = -1;
+                if (!Input.GetKey(KeyCode.W) &&
+                    !Input.GetKey(KeyCode.S))
+                {
+                    speed.x = rigid.velocity.x;
+                    speed.z = 0.0f;
+                    speed.y = rigid.velocity.y;
+                    this.rigid.velocity = speed;
+                }
+                this.rigid.AddForce(transform.right * dir * this.walkForce);
             }
             if (transform.position.y <= -10.0f)
             {

@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;//LoadScene‚ðŽg‚¤‚½‚ß‚É•K—v
+using UnityEngine.SceneManagement;//LoadScene
 
-public class SceneDirector : MonoBehaviour
+public class ExplainSM : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,9 +14,9 @@ public class SceneDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene("Explain");
+            SceneManager.LoadScene("GameScene");
         }
     }
 }

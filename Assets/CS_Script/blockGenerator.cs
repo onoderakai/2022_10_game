@@ -21,8 +21,8 @@ public class blockGenerator : MonoBehaviour
                 GameObject create = Instantiate(blockPrefab) as GameObject;
 
                 create.transform.position = new Vector3(x * 0.8f, 0, z * 0.8f);
-                maxRangeX = x;
-                maxRangeZ = z;
+                maxRangeX = x - 1;
+                maxRangeZ = z - 1;
             }
            
         }

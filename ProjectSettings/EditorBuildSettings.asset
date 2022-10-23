@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/S_GameTitle/GameTitle.unity
     guid: c6ba809798a8cca449bb29f6d4f0d41f
   - enabled: 1
+    path: Assets/S_Explain/explain.unity
+    guid: 1db914e1def57354aadc1da3d792913f
+  - enabled: 1
     path: Assets/GameScene.unity
     guid: 6c4c404c2ca223c44a85693f9c379bbc
   - enabled: 1
