@@ -409,7 +409,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3b187e9355a08c54799b17fc4fe81d25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u305F\u3053\u713C\u304DESCAPE(\u4EEE)"
+  m_Text: "\u9003\u3052\u308D\u305F\u3053\u713C\u304D\u304F\u3093"
 --- !u!222 &1609897938
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: 2022_10_Unitygame
+  companyName: "GC1A_07_\u30AA\u30CE\u30C7\u30E9\u30AB\u30A4"
+  productName: "\u9003\u3052\u308D\u305F\u3053\u713C\u304D\u304F\u3093"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
